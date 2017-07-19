@@ -1,0 +1,14 @@
+1.想要调用百度地图的API 需要申请百度的AK 并且在 HTML中引用，本文中的ak是公用ak，测试使用可以，若是商业用途，请自行申请ak
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+2. echart里所需的数据 option 里的 series对象中的 coordinateSystem属性，用于控制坐标类型 写成'bmap'则与百度地图结合了起来
+3.使用
+      if (!app.inNode) {
+          var bmap = myChart.getModel().getComponent('bmap').getBMap();
+          bmap.addControl(new BMap.MapTypeControl());
+          });
+      }
+  获取百度地图API对象 bmap，对这个对象进行操作即可实现对地图的控制，百度地图api详见
+  http://developer.baidu.com/map/reference/index.php
+4.myChart.setOption(option);以后才能获取 myChart.getModel() 不然调用会失败
+
+本demo 是借鉴(cooy=-=)http://gallery.echartsjs.com/editor.html?c=xr162SYdV- 的作品 感谢原作者
